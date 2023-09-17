@@ -1,0 +1,14 @@
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\obj\Debug\net6.0\Калькуляторка.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\obj\Debug\net6.0\Калькуляторка.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\obj\Debug\net6.0\Калькуляторка.AssemblyInfo.cs
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\obj\Debug\net6.0\Калькуляторка.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\bin\Debug\net6.0\Калькуляторка.exe
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\bin\Debug\net6.0\Калькуляторка.deps.json
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\bin\Debug\net6.0\Калькуляторка.runtimeconfig.json
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\bin\Debug\net6.0\Калькуляторка.dll
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\bin\Debug\net6.0\Калькуляторка.pdb
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\obj\Debug\net6.0\Калькуляторка.dll
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\obj\Debug\net6.0\refint\Калькуляторка.dll
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\obj\Debug\net6.0\Калькуляторка.pdb
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\obj\Debug\net6.0\Калькуляторка.genruntimeconfig.cache
+C:\Users\User\source\repos\Калькуляторка\Калькуляторка\obj\Debug\net6.0\ref\Калькуляторка.dll

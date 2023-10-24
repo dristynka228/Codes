@@ -16,7 +16,6 @@ public class DailyPlanner
 
     public DailyPlanner()
     {
-        // Создаем список заметок
         notes = new List<Note>
         {
             new Note
@@ -49,7 +48,7 @@ public class DailyPlanner
             },
             new Note
             {
-                Title = "Заметочка 6",
+                Title = "Заметочка 5",
                 Description = "Отчислиться",
                 Date = new DateTime(2023, 5, 27),
                 AdditionalInfo = "Зачем вообще нужно обучение в МПТ, лучше сразу отчислиться и на помойку"

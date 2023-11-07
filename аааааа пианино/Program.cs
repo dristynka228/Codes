@@ -1,124 +1,112 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 
 class Piano
 {
-    private static int[][] octaves = new int[][]
-    {
-        new int[] { 262, 294, 330, 349, 392, 440, 494 }, 
-        new int[] { 523, 587, 659, 698, 784, 880, 988 }, 
-        new int[] { 1047, 1175, 1319, 1397, 1568, 1760, 1976 } 
-        
-    };
+  
+    private static int[] firstOctave = new int[] { 200, 300, 400 };
+    private static int[] secondOctave = new int[] { 500, 600, 700 };
+    private static int[] thirdOctave = new int[] { 800, 900, 1000 };
 
-    private int currentOctave = 0;
+    private static int currentOctave = 1; 
 
-    private void PlaySound(int frequency)
+    static void Main()
     {
-        Console.Beep(frequency, 300); 
-    }
+        Console.WriteLine("Добро пожаловать в пианинку");
+        Console.WriteLine("Для переключения октав используй клавиши F1, F2, F3 ");
 
-    private int[] GetCurrentOctave()
-    {
-        return octaves[currentOctave]; 
-    }
-
-    private void ChangeOctave(int octave)
-    {
-        if (octave >= 0 && octave < octaves.Length)
+        while (true)
         {
-            currentOctave = octave; 
-            Console.WriteLine("Октавка изменена на " + (currentOctave + 1));
+            
+            if (Console.KeyAvailable)
+            {
+                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
+                switch (keyInfo.Key)
+                {
+                   
+                    case ConsoleKey.F1:
+                        ChangeOctave(1);
+                        break;
+                    
+                    case ConsoleKey.F2:
+                        ChangeOctave(2);
+                        break;
+                    
+                    case ConsoleKey.F3:
+                        ChangeOctave(3);
+                        break;
+                    
+                    case ConsoleKey.A:
+                        PlaySound(0);
+                        break;
+                    case ConsoleKey.S:
+                        PlaySound(1);
+                        break;
+                    case ConsoleKey.D:
+                        PlaySound(2);
+                        break;
+                    case ConsoleKey.F:
+                        PlaySound(3);
+                        break;
+                    case ConsoleKey.G:
+                        PlaySound(4);
+                        break;
+                    case ConsoleKey.H:
+                        PlaySound(5);
+                        break;
+                    
+                    case ConsoleKey.Escape:
+                        return; 
+                }
+            }
+        }
+    }
+
+    
+    static void ChangeOctave(int octave)
+    {
+        
+        if (octave >= 1 && octave <= 3)
+        {
+            Console.WriteLine($"Ты изменил октавку на {octave}!");
+            currentOctave = octave;
         }
         else
         {
-            Console.WriteLine("Такой октавки тут нет, давай другую");
+            Console.WriteLine("Такой октавы нет");
         }
     }
 
-    public void Run()
+    static void PlaySound(int noteIndex)
     {
-        while (true)
+        
+        int[] currentOctaveSounds;
+        switch (currentOctave)
         {
-            Console.WriteLine("Текущая октавка: " + (currentOctave + 1));
-
-            ConsoleKey key = Console.ReadKey(true).Key;
-
-            if (key >= ConsoleKey.F1 && key <= ConsoleKey.F12)
-            {
-                int octave = key - ConsoleKey.F1; 
-                ChangeOctave(octave);
-            }
-
-            else if (key == ConsoleKey.A || key == ConsoleKey.W || key == ConsoleKey.S ||
-                key == ConsoleKey.E || key == ConsoleKey.D || key == ConsoleKey.F || key == ConsoleKey.T ||
-                key == ConsoleKey.G || key == ConsoleKey.Y || key == ConsoleKey.H || key == ConsoleKey.U ||
-                key == ConsoleKey.J || key == ConsoleKey.K)
-            {
-                int[] currentOctave = GetCurrentOctave();
-
-                int noteIndex = 0;
-
-                switch (key)
-                {
-                    case ConsoleKey.A:
-                        noteIndex = 0;
-                        break;
-                    case ConsoleKey.W:
-                        noteIndex = 1;
-                        break;
-                    case ConsoleKey.S:
-                        noteIndex = 2;
-                        break;
-                    case ConsoleKey.E:
-                        noteIndex = 3;
-                        break;
-                    case ConsoleKey.D:
-                        noteIndex = 4;
-                        break;
-                    case ConsoleKey.F:
-                        noteIndex = 5;
-                        break;
-                    case ConsoleKey.T:
-                        noteIndex = 6;
-                        break;
-                    case ConsoleKey.G:
-                        noteIndex = 7;
-                        break;
-                    case ConsoleKey.Y:
-                        noteIndex = 8;
-                        break;
-                    case ConsoleKey.H:
-                        noteIndex = 9;
-                        break;
-                    case ConsoleKey.U:
-                        noteIndex = 10;
-                        break;
-                    case ConsoleKey.J:
-                        noteIndex = 11;
-                        break;
-                    case ConsoleKey.K:
-                        noteIndex = 12;
-                        break;
-                }
-
-                PlaySound(currentOctave[noteIndex]);
-            }
-            else if (key == ConsoleKey.Escape)
-            {
-                break; 
-            }
+            case 1:
+                currentOctaveSounds = firstOctave;
+                break;
+            case 2:
+                currentOctaveSounds = secondOctave;
+                break;
+            case 3:
+                currentOctaveSounds = thirdOctave;
+                break;
+            default:
+                Console.WriteLine("Такой октавы нет");
+                return;
         }
-    }
-}
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        Piano piano = new Piano();
-        piano.Run();
+        if (noteIndex >= 0 && noteIndex < currentOctaveSounds.Length)
+        {
+            int frequency = currentOctaveSounds[noteIndex];
+            Console.WriteLine($"Воспроизведен звук ноты {noteIndex + 1} с частотой {frequency} Гц");
+
+        }
+        else
+        {
+            Console.WriteLine("Такой ноты нет");
+        }
     }
 }

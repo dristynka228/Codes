@@ -29,7 +29,6 @@ class Program
 
         Console.WriteLine($"Вы успешно авторизовались как {loggedInUser}");
 
-        // Дальнейший функционал разделяется по ролям
         string role = GetRoleByUsername(loggedInUser);
 
         Console.WriteLine("--------------------------");
